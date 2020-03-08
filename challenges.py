@@ -6,10 +6,10 @@
 # Problem 1
 def convert_time(num):
     hour = num // 100
-    min = num % 100
+    minute = num % 100
     if hour > 12:
         hour -= 12
-    return [hour, min]
+    return [hour, minute]
 
 
 # Testing problem 1
@@ -74,12 +74,22 @@ print("\n")
 
 # Problem 5
 def wheresArmadillo(animals):
-    """
-    :type animal: list containing the names of the animals presorted by weight
-    :output: the product of the number of passes through the list and the index of the armadillo
-    :HINT: USE THE checkAnimal FUNCTION TO SEE IF THE ARMADILLO IS HEAVIER OR LIGHTER THAN THE GIVEN FUNCTION
-    """
-    return()
+    passes, i, lIndex, rIndex, mActualIndex = 0, 0, 0, len(animals), 0
+    mIndex = (lIndex + rIndex) // 2
+    mActualIndex = mIndex
+    while i == 0:
+        passes += 1
+        if checkAnimal(animals[mIndex]) == -1:
+            rIndex = mIndex
+            mIndex = (lIndex + rIndex) // 2
+            mActualIndex = mActualIndex - mIndex
+        elif checkAnimal(animals[mIndex]) == 0:
+            i += 1
+        else:
+            lIndex = mIndex
+            mIndex = (lIndex + rIndex) // 2
+            mActualIndex = mActualIndex + mIndex
+    return passes * mActualIndex
 
 
 def checkAnimal(animal):
