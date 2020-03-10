@@ -74,22 +74,19 @@ print("\n")
 
 # Problem 5
 def wheresArmadillo(animals):
-    passes, i, lIndex, rIndex, mActualIndex = 0, 0, 0, len(animals), 0
+    passes, i, lIndex, rIndex = 0, 0, 0, len(animals)
     mIndex = (lIndex + rIndex) // 2
-    mActualIndex = mIndex
     while i == 0:
         passes += 1
         if checkAnimal(animals[mIndex]) == -1:
             rIndex = mIndex
             mIndex = (lIndex + rIndex) // 2
-            mActualIndex = mActualIndex - mIndex
         elif checkAnimal(animals[mIndex]) == 0:
             i += 1
         else:
             lIndex = mIndex
             mIndex = (lIndex + rIndex) // 2
-            mActualIndex = mActualIndex + mIndex
-    return passes * mActualIndex
+    return passes * mIndex
 
 
 def checkAnimal(animal):
@@ -121,11 +118,7 @@ print("\n")
 
 # Problem 6
 def pie_cals_triangle(num):
-  """
-  :type num: positive integer representing the starting number of your triangle
-  :output: the sum of the first five rows of the triangle shown in the coding challenges
-  """
-  return()
+  return 9 * num + num ** 2 + 2 * num ** 3 + 2 * num ** 4 + num ** 6
 
 
 # Testing problem 6
@@ -138,11 +131,6 @@ print("\n")
 
 # Problem 7
 def road_trip(num):
-  """
-  :type num: positive integer re
-  :type output: integer representing the time traveled rounded to the nearest time if everytimme the distance left is a multiple of five you add three units of distance, otherwise subtract two units of distance.
-  :RESTRICTION YOU MUST USE RECURSION
-  """
   return()
 
 
@@ -168,4 +156,3 @@ print("Testing convertRoman")
 print(convertRoman(41))  # "XLI"
 print(convertRoman(904))  # "CMIV"
 print(convertRoman(1050))  # "ML"
-
