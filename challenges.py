@@ -118,37 +118,83 @@ print("\n")
 
 # Problem 6
 def pie_cals_triangle(num):
-  return 9 * num + num ** 2 + 2 * num ** 3 + 2 * num ** 4 + num ** 6
+    return 9 * num + num ** 2 + 2 * num ** 3 + 2 * num ** 4 + num ** 6
 
 
 # Testing problem 6
 print("Testing pie_cals_triangle")
-print(pie_cals_triangle(1)) # 15
-print(pie_cals_triangle(3)) # 981
-print(pie_cals_triangle(8)) # 271496
+print(pie_cals_triangle(1))  # 15
+print(pie_cals_triangle(3))  # 981
+print(pie_cals_triangle(8))  # 271496
 print("\n")
 
 
 # Problem 7
-def road_trip(num):
-  return()
+def road_trip(num):  # INCOMPLETE
+    if num % 5 == 0:
+        num += 3
+    if "roadTime" not in globals():
+        global roadTime
+        roadTime = 0
+    roadTime += 1
+    num -= 2
+    if num < 0:
+        print(roadTime)
+        return roadTime
+    road_trip(num)
 
 
 # Testing problem 6
 print("Testing road_trip")
-print(road_trip(12)) # 11
-print(road_trip(51)) # 48
-print(road_trip(104)) # 102
+print(road_trip(12))  # 11
+print(road_trip(51))  # 48
+print(road_trip(104))  # 102
 print("\n")
 
 
 # Problem 8
 def convertRoman(num):
-  """
-  :type num: a positive integer
-  :type output: the roman numeral representation of the input num
-  """
-  return()
+    roman = ""
+    while num >= 1000:
+        num -= 1000
+        roman += "M"
+    while num >= 900:
+        num -= 900
+        roman += "CM"
+    while num >= 500:
+        num -= 500
+        roman += "D"
+    while num >= 400:
+        num -= 400
+        roman += "CD"
+    while num >= 100:
+        num -= 100
+        roman += "C"
+    while num >= 90:
+        num -= 90
+        roman += "XC"
+    while num >= 50:
+        num -= 50
+        roman += "L"
+    while num >= 40:
+        num -= 40
+        roman += "XL"
+    while num >= 10:
+        num -= 10
+        roman += "X"
+    while num >= 9:
+        num -= 9
+        roman += "IX"
+    while num >= 5:
+        num -= 5
+        roman += "V"
+    while num >= 4:
+        num -= 4
+        roman += "IV"
+    while num >= 1:
+        num -= 1
+        roman += "I"
+    return roman
 
 
 # Testing problem 6
