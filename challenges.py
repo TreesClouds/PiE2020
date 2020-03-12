@@ -1,6 +1,6 @@
 
 
-# Team 35 Coding Challenges - "Oven Password"
+# Team 35 Coding Challenges
 
 
 # Problem 1
@@ -130,18 +130,20 @@ print("\n")
 
 
 # Problem 7
-def road_trip(num):  # INCOMPLETE
-    if num % 5 == 0:
-        num += 3
+def road_trip(num):
     if "roadTime" not in globals():
         global roadTime
         roadTime = 0
+    if num <= 0:
+        roadTimeF = roadTime
+        roadTime = 0
+        return roadTimeF
+    elif num % 5 == 0:
+        num += 3
+    else:
+        num -= 2
     roadTime += 1
-    num -= 2
-    if num < 0:
-        print(roadTime)
-        return roadTime
-    road_trip(num)
+    return road_trip(num)
 
 
 # Testing problem 6
